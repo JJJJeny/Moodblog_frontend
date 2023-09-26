@@ -1,17 +1,65 @@
-// App.jsx is the homepage of the React project, let's browse this program.
+import { useEffect } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
+import {
+	ClerkProvider,
+	SignedIn,
+	SignedOut,
+	RedirectToSignIn,
+	SignIn,
+	SignUp,
+} from '@clerk/clerk-react'
 
-// Here are the basic settings of the project. We use the Tailwind style library and Chart.js in the project.
-import "./css/style.css"; // Import Tailwind CSS
-import "./charts/ChartjsConfig"; // Import Chart.js
+import './css/style.css'
 
-// Dashboard is one of the pages on our website (currently the only one).
-import Dashboard from "./pages/Dashboard"; // You can find this file (Dashboard) in /pages directory
+import './charts/ChartjsConfig'
 
-function App() {
-  return (
-    <Dashboard />
-    // To modify the content of our page, please go to ./pages/Dashboard to find the code for this page.
-  );
+// Import pages
+import Dashboard from './pages/Dashboard'
+import Chat from './pages/Chat'
+
+if (!import.meta.env.VITE_CLERK_PUBLISHABLE_KEY) {
+	throw new Error('Missing Publishable Key')
 }
 
-export default App;
+const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
+
+function App() {
+	const location = useLocation()
+
+	useEffect(() => {
+		document.querySelector('html').style.scrollBehavior = 'auto'
+		window.scroll({ top: 0 })
+		document.querySelector('html').style.scrollBehavior = ''
+	}, [location.pathname]) // triggered on route change
+
+	return (
+		<ClerkProvider publishableKey={clerkPubKey}>
+			<Routes>
+				<Route exact path="/" element={<Dashboard />} />
+				<Route
+					path="/sign-in/*"
+					element={<SignIn routing="path" path="/sign-in" />}
+				/>
+				<Route
+					path="/sign-up/*"
+					element={<SignUp routing="path" path="/sign-up" />}
+				/>
+				<Route
+					path="/chat"
+					element={
+						<>
+							<SignedIn>
+								<Chat />
+							</SignedIn>
+							<SignedOut>
+								<RedirectToSignIn />
+							</SignedOut>
+						</>
+					}
+				/>
+			</Routes>
+		</ClerkProvider>
+	)
+}
+
+export default App
