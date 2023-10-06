@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import {
 	ClerkProvider,
 	SignedIn,
@@ -16,6 +16,16 @@ import './charts/ChartjsConfig'
 // Import pages
 import Dashboard from './pages/Dashboard'
 import Chat from './pages/Chat'
+import Home from './pages/Home'
+import NotFound from './pages/404'
+import Table from './pages/Table'
+import Form from './pages/Form'
+import FormFile from './pages/Form/File'
+import Calendar from './pages/Form/Calendar'
+import Modal from './pages/MUI/Modal'
+import Pagination from './pages/MUI/Pagination'
+import Carousel from './pages/MUI/Carousel'
+import Hook from './pages/Hook'
 
 if (!import.meta.env.VITE_CLERK_PUBLISHABLE_KEY) {
 	throw new Error('Missing Publishable Key')
@@ -35,7 +45,17 @@ function App() {
 	return (
 		<ClerkProvider publishableKey={clerkPubKey}>
 			<Routes>
-				<Route exact path="/" element={<Dashboard />} />
+				<Route exact path="/" element={<Home />} />
+				<Route exact path="/zoo" element={<Navigate to="/zoo/chart" />} />
+				<Route exact path="/zoo/chart" element={<Dashboard />} />
+				<Route exact path="/zoo/table" element={<Table />} />
+				<Route exact path="/zoo/form/typical" element={<Form />} />
+				<Route exact path="/zoo/form/file" element={<FormFile />} />
+				<Route exact path="/zoo/form/calendar" element={<Calendar />} />
+				<Route exact path="/zoo/mui/modal" element={<Modal />} />
+				<Route exact path="/zoo/mui/pagination" element={<Pagination />} />
+				<Route exact path="/zoo/mui/carousel" element={<Carousel />} />
+				<Route exact path="/zoo/hook" element={<Hook />} />
 				<Route
 					path="/sign-in/*"
 					element={<SignIn routing="path" path="/sign-in" />}
@@ -45,7 +65,7 @@ function App() {
 					element={<SignUp routing="path" path="/sign-up" />}
 				/>
 				<Route
-					path="/chat"
+					path="/zoo/chat"
 					element={
 						<>
 							<SignedIn>
@@ -56,6 +76,10 @@ function App() {
 							</SignedOut>
 						</>
 					}
+				/>
+				<Route
+					path="*"
+					element={<NotFound />}
 				/>
 			</Routes>
 		</ClerkProvider>
