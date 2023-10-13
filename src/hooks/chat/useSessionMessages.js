@@ -1,7 +1,7 @@
 import useSWRFetch from "../useSWRFetch";
 
 export default (sessionId) => {
-  const apiUrl;
+  const apiUrl = "";
 
   const { data, mutate } = useSWRFetch(apiUrl); // 發送 GET 請求
 

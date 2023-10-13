@@ -1,5 +1,4 @@
 import React from "react";
-import { useCountries } from "use-react-countries";
 import {
   Card,
   CardHeader,
@@ -48,7 +47,7 @@ function formatExpires(value) {
 }
 
 export default function CheckoutForm() {
-  const { countries } = useCountries();
+  const countries = ["Taiwan", "Japan"];
   const [type, setType] = React.useState("card");
   const [cardNumber, setCardNumber] = React.useState("");
   const [cardExpires, setCardExpires] = React.useState("");
