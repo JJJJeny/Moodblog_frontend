@@ -29,6 +29,9 @@ import Modal from "./pages/MUI/Modal";
 import Pagination from "./pages/MUI/Pagination";
 import Carousel from "./pages/MUI/Carousel";
 import Hook from "./pages/Hook";
+import Welcome from "./pages/moodblog/Welcome";
+import Newpage from "./pages/moodblog/Newpage";
+import Ai from "./pages/moodblog/Ai";
 
 // if (!import.meta.env.VITE_CLERK_PUBLISHABLE_KEY) {
 // throw new Error('Missing Publishable Key')
@@ -48,7 +51,9 @@ function App() {
   return (
     // <ClerkProvider publishableKey={clerkPubKey}>
     <Routes>
-      <Route exact path="/" element={<Home />} />
+      <Route exact path="/" element={<Welcome />} />
+      <Route exact path="/new" element={<Newpage />} />
+      <Route exact path="/aichat" element={<Ai />} />
       <Route exact path="/zoo" element={<Navigate to="/zoo/chart" />} />
       <Route exact path="/zoo/chart" element={<Dashboard />} />
       <Route exact path="/zoo/table" element={<Table />} />
