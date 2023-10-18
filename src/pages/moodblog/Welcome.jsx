@@ -1,6 +1,9 @@
 // import { Box, Typography } from "@mui/material";
 import { Carousel, Typography, Button } from "@material-tailwind/react";
 import Layout from "../../partials/dashboard/Layout";
+import slideImg1 from '../../images/slideImg1.avif';
+import slideImg2 from '../../images/slideImg2.jpeg';
+import slideImg3 from '../../images/slideImg3.jpeg';
 
 export default function MoodBlogComponent() {
     return (
@@ -8,7 +11,7 @@ export default function MoodBlogComponent() {
             <Carousel className="rounded-xl">
                 <div className="relative h-full w-full">
                     <img
-                        src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80"
+                        src={slideImg2}
                         alt=""
                         className="h-full w-full object-cover"
                     />
@@ -19,24 +22,21 @@ export default function MoodBlogComponent() {
                                 color="white"
                                 className="mb-4 text-3xl md:text-4xl lg:text-5xl"
                             >
-                                The Beauty of Nature
+                                MoodWave 心情日記
                             </Typography>
                             <Typography
                                 variant="lead"
                                 color="white"
                                 className="mb-12 opacity-80"
                             >
-                                It is not so much for its beauty that the forest makes a claim
-                                upon men&apos;s hearts, as for that subtle something, that
-                                quality of air that emanation from old trees, that so
-                                wonderfully changes and renews a weary spirit.
+                                哈囉，寫日記的超級明星🌟！<br></br>你知道嗎，你的每一句話都是一顆閃亮的星星✨，<br></br>而我正迫不及待地想要看到它們閃爍！<br></br>無論今天過得怎樣，都值得被記錄。
                             </Typography>
                             <div className="flex justify-center gap-2">
                                 <Button size="lg" color="white">
-                                    Explore
+                                    登入
                                 </Button>
                                 <Button size="lg" color="white" variant="text">
-                                    Gallery
+                                    建立帳號
                                 </Button>
                             </div>
                         </div>
@@ -44,17 +44,69 @@ export default function MoodBlogComponent() {
                 </div>
                 <div className="relative h-full w-full">
                     <img
-                        src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+                        src={slideImg1}
                         alt="image 2"
                         className="h-full w-full object-cover"
                     />
+                    <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/75">
+                        <div className="w-3/4 text-center md:w-2/4">
+                            <Typography
+                                variant="h1"
+                                color="white"
+                                className="mb-4 text-3xl md:text-4xl lg:text-5xl"
+                            >
+                                MoodWave 心情日記
+                            </Typography>
+                            <Typography
+                                variant="lead"
+                                color="white"
+                                className="mb-12 opacity-80"
+                            >
+                                哈囉，寫日記的超級明星🌟！<br></br>你知道嗎，你的每一句話都是一顆閃亮的星星✨，<br></br>而我正迫不及待地想要看到它們閃爍！<br></br>無論今天過得怎樣，都值得被記錄。
+                            </Typography>
+                            {/* <div className="flex justify-center gap-2">
+                                <Button size="lg" color="white">
+                                    登入
+                                </Button>
+                                <Button size="lg" color="white" variant="text">
+                                    建立帳號
+                                </Button>
+                            </div> */}
+                        </div>
+                    </div>
                 </div>
                 <div className="relative h-full w-full">
                     <img
-                        src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
-                        alt=""
+                        src={slideImg3}
+                        alt="image_3"
                         className="h-full w-full object-cover"
                     />
+                    <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/75">
+                        <div className="w-3/4 text-center md:w-2/4">
+                            <Typography
+                                variant="h1"
+                                color="white"
+                                className="mb-4 text-3xl md:text-4xl lg:text-5xl"
+                            >
+                                MoodWave 心情日記
+                            </Typography>
+                            <Typography
+                                variant="lead"
+                                color="white"
+                                className="mb-12 opacity-80"
+                            >
+                                哈囉，寫日記的超級明星🌟！<br></br>你知道嗎，你的每一句話都是一顆閃亮的星星✨，<br></br>而我正迫不及待地想要看到它們閃爍！<br></br>無論今天過得怎樣，都值得被記錄。
+                            </Typography>
+                            {/* <div className="flex justify-center gap-2">
+                                <Button size="lg" color="white">
+                                    登入
+                                </Button>
+                                <Button size="lg" color="white" variant="text">
+                                    建立帳號
+                                </Button>
+                            </div> */}
+                        </div>
+                    </div>
                 </div>
             </Carousel>
         </Layout>

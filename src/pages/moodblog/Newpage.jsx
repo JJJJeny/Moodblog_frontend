@@ -1,3 +1,4 @@
+import Layout from "../../partials/dashboard/Layout";
 export default function MoodBlogComponent() {
     return (
         <main className=" bg-red-400 bg-opacity-50 flex flex-col pr-px">

@@ -17,33 +17,35 @@ export default function CalendarPage() {
   return (
     <Layout>
       <div className="p-20 flex flex-col justify-center items-center">
+        {/* 標題 */}
+        <div className='pt-8 pb-4 font-medium text-lg'>選擇日期，回顧以前的日記吧</div>
         <Calendar onChange={setDate} value={date} />
         <div className="flex items-center mt-10">
           <Button
             className="mr-4"
             onClick={() =>
               Swal.fire({
-                title: "Demo",
+                title: "似乎沒有留下日記呢",
                 text: `你選擇的日期為 ${formatDate(date)}`
               })
             }
           >
-            送出
+            查看日記
           </Button>
-          <a
+          {/* <a
             href="https://github.com/wojtekmaj/react-calendar/tree/main/packages/react-calendar"
             target="_blank"
             rel="noreferrer"
           >
             <Button variant="outlined">Doc</Button>
-          </a>
+          </a> */}
         </div>
-        <Typography variant="small" className="w-[50%] mt-10">
+        {/* <Typography variant="small" className="w-[50%] mt-10">
           Try not to ask ChatGPT about &quot;packages&quot; and try to follow the usage as
           instructed by the official documentation. Of course, aside from the
           package&apos;s own code lines, you can still use ChatGPT to help you
           understand.
-        </Typography>
+        </Typography> */}
       </div>
     </Layout>
   );

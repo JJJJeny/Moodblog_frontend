@@ -139,7 +139,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
       <div
         id="sidebar"
         ref={sidebar}
-        className={`flex flex-col absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar w-64 lg:w-20 lg:sidebar-expanded:!w-64 2xl:!w-64 shrink-0 bg-slate-800 p-4 transition-all duration-200 ease-in-out ${
+        className={`flex flex-col absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar w-64 lg:w-20 lg:sidebar-expanded:!w-64 2xl:!w-64 shrink-0 bg-amber-600 p-4 transition-all duration-200 ease-in-out ${
           sidebarOpen ? "translate-x-0" : "-translate-x-64"
         }`}
       >
@@ -148,12 +148,12 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
           {/* Close button */}
           <button
             ref={trigger}
-            className="lg:hidden  text-slate-500 hover:text-slate-400"
+            className="lg:hidden  text-orange-950 hover:text-slate-400"
             onClick={() => setSidebarOpen(!sidebarOpen)}
             aria-controls="sidebar"
             aria-expanded={sidebarOpen}
           >
-            <span className="sr-only">Close sidebar</span>
+            <span className="sr-only">關閉側欄</span>
             <svg
               className="w-6 h-6 fill-current"
               viewBox="0 0 24 24"
@@ -171,8 +171,8 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
         <div className="h-full flex flex-col justify-between space-y-8">
           {/* Pages group */}
           <div>
-            <Link to="/" className="pl-3 text-xl font-semibold mb-6 flex hover:text-white"><HomeIcon className="mr-1" width="15" />首頁</Link>
-            <h3 className="text-xl uppercase text-slate-500 font-semibold pl-3">
+            <Link to="/" className="text-orange-950 pl-3 text-xl font-semibold mb-6 flex hover:text-white"><HomeIcon className="mr-1" width="15" />首頁</Link>
+            <h3 className="text-xl uppercase text-grey-950 font-medium pl-3">
               <span
                 className="hidden lg:block lg:sidebar-expanded:hidden 2xl:hidden text-center w-6"
                 aria-hidden="true"
@@ -194,7 +194,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                       <>
                         <a
                           href="#0"
-                          className={`block text-slate-200 truncate transition duration-150 ${
+                          className={`block text-orange-950 truncate transition duration-150 ${
                             pathname.includes(category.path)
                               ? "hover:text-slate-200"
                               : "hover:text-white"
@@ -219,7 +219,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                             {/* arrow */}
                             <div className="flex shrink-0 ml-2">
                               <svg
-                                className={`w-3 h-3 shrink-0 ml-1 fill-current text-slate-400 ${
+                                className={`w-3 h-3 shrink-0 ml-1 fill-current text-orange-950 ${
                                   open && "rotate-180"
                                 }`}
                                 viewBox="0 0 12 12"
@@ -239,7 +239,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                                   className={({ isActive }) =>
                                     `block transition duration-150 truncate ${
                                       isActive
-                                        ? "text-orange-500"
+                                        ? "text-orange-950"
                                         : "text-slate-400 hover:text-slate-200"
                                     }`
                                   }
@@ -258,13 +258,13 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                 ) : (
                   <li
                     className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${
-                      pathname.includes(category.path) && "bg-slate-900"
+                      pathname.includes(category.path) && "bg-orange-600/75"
                     }`}
                   >
                     <NavLink
                       end
                       to={`/${category.path}`}
-                      className={`block text-slate-200 truncate transition duration-150 ${
+                      className={`block text-orange-950 truncate transition duration-150 font-medium ${
                         pathname.includes(category.path)
                           ? "hover:text-slate-200"
                           : "hover:text-white"
@@ -272,7 +272,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                     >
                       <div className="flex items-center">
                         <Icon path={category.path} meta={category.svgMeta} />
-                        <span className="text-lg font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                        <span className="text-lg font-semibold ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
                           {category.title}
                         </span>
                       </div>
@@ -378,7 +378,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
         <div className="pt-3 hidden lg:inline-flex 2xl:hidden justify-end mt-auto">
           <div className="px-3 py-2">
             <button onClick={() => setSidebarExpanded(!sidebarExpanded)}>
-              <span className="sr-only">Expand / collapse sidebar</span>
+              <span className="sr-only">展開/闔起側欄</span>
               <svg
                 className="w-6 h-6 fill-current sidebar-expanded:rotate-180"
                 viewBox="0 0 24 24"
