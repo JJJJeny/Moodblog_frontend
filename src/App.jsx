@@ -31,6 +31,7 @@ import Carousel from "./pages/MUI/Carousel";
 import Hook from "./pages/Hook";
 import Welcome from "./pages/moodblog/Welcome";
 import Newpage from "./pages/moodblog/Newpage";
+import EditDiary from "./pages/moodblog/EditDiary";
 import Ai from "./pages/moodblog/Ai";
 
 // if (!import.meta.env.VITE_CLERK_PUBLISHABLE_KEY) {
@@ -53,6 +54,7 @@ function App() {
     <Routes>
       <Route exact path="/" element={<Welcome />} />
       <Route exact path="/new" element={<Newpage />} />
+      <Route exact path="/edit" element={<EditDiary />} />
       <Route exact path="/aichat" element={<Ai />} />
       <Route exact path="/zoo" element={<Navigate to="/zoo/chart" />} />
       <Route exact path="/zoo/chart" element={<Dashboard />} />

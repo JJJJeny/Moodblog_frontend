@@ -26,7 +26,7 @@ module.exports = {
         orange: "2px solid #ff6010"
       },
       fontFamily: {
-        inter: ["Inter", "sans-serif"]
+        inter: ["cwTeXYen", "Noto Sans TC", "Pixelify Sans", "Inter", "sans-serif"]
       },
       fontSize: {
         xs: ["0.75rem", { lineHeight: "1.5" }],

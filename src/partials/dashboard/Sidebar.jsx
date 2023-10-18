@@ -1,71 +1,82 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
+import { HomeIcon } from "@heroicons/react/24/solid";
 import SidebarLinkGroup from "./SidebarLinkGroup";
 import { calendar, chart, messages, square, starshine, task } from "../../data/icons";
 import Icon from "../../components/Icon";
-import { ArrowLeftIcon } from "@heroicons/react/24/solid";
+// import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 
 function Sidebar({ sidebarOpen, setSidebarOpen }) {
   const sitemap = [
     {
-      title: "Chart",
-      path: "chart",
-      svgMeta: chart
-    },
-    {
-      title: "Chat",
-      path: "chat",
-      svgMeta: messages
-    },
-    {
-      title: "React Hook",
-      path: "hook",
-      svgMeta: task
-    },
-    {
-      title: "Form",
-      path: "form",
-      svgMeta: calendar,
-      sublinks: [
-        {
-          title: "typical",
-          path: "typical"
-        },
-        {
-          title: "file",
-          path: "file"
-        },
-        {
-          title: "calendar",
-          path: "calendar"
-        },
-      ]
-    },
-    {
-      title: "Table",
-      path: "table",
-      svgMeta: square
-    },
-    {
-      title: "MUI",
-      path: "mui",
+      title: "撰寫日記",
+      path: "edit",
       svgMeta: starshine,
-      sublinks: [
-        {
-          title: "modal",
-          path: "modal"
-        },
-        {
-          title: "pagination",
-          path: "pagination"
-        },
-        {
-          title: "carousel",
-          path: "carousel"
-        },
-      ]
     },
+    {
+      title: "歷史紀錄",
+      path: "zoo/form/calendar",
+      svgMeta: calendar,
+    },
+    // {
+    //   title: "Chart",
+    //   path: "chart",
+    //   svgMeta: chart
+    // },
+    // {
+    //   title: "Chat",
+    //   path: "chat",
+    //   svgMeta: messages
+    // },
+    // {
+    //   title: "React Hook",
+    //   path: "hook",
+    //   svgMeta: task
+    // },
+    // {
+    //   title: "Form",
+    //   path: "form",
+    //   svgMeta: calendar,
+    //   sublinks: [
+    //     {
+    //       title: "typical",
+    //       path: "typical"
+    //     },
+    //     {
+    //       title: "file",
+    //       path: "file"
+    //     },
+    //     {
+    //       title: "calendar",
+    //       path: "calendar"
+    //     },
+    //   ]
+    // },
+    // {
+    //   title: "Table",
+    //   path: "table",
+    //   svgMeta: square
+    // },
+    // {
+    //   title: "MUI",
+    //   path: "mui",
+    //   svgMeta: starshine,
+    //   sublinks: [
+    //     {
+    //       title: "modal",
+    //       path: "modal"
+    //     },
+    //     {
+    //       title: "pagination",
+    //       path: "pagination"
+    //     },
+    //     {
+    //       title: "carousel",
+    //       path: "carousel"
+    //     },
+    //   ]
+    // },
   ];
 
   const location = useLocation();
@@ -137,7 +148,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
           {/* Close button */}
           <button
             ref={trigger}
-            className="lg:hidden text-slate-500 hover:text-slate-400"
+            className="lg:hidden  text-slate-500 hover:text-slate-400"
             onClick={() => setSidebarOpen(!sidebarOpen)}
             aria-controls="sidebar"
             aria-expanded={sidebarOpen}
@@ -160,8 +171,8 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
         <div className="h-full flex flex-col justify-between space-y-8">
           {/* Pages group */}
           <div>
-            <Link to="/" className="pl-3 underline mb-6 flex hover:text-white"><ArrowLeftIcon className="mr-1" width="15" />back home</Link>
-            <h3 className="text-xs uppercase text-slate-500 font-semibold pl-3">
+            <Link to="/" className="pl-3 text-xl font-semibold mb-6 flex hover:text-white"><HomeIcon className="mr-1" width="15" />首頁</Link>
+            <h3 className="text-xl uppercase text-slate-500 font-semibold pl-3">
               <span
                 className="hidden lg:block lg:sidebar-expanded:hidden 2xl:hidden text-center w-6"
                 aria-hidden="true"
@@ -169,7 +180,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                 •••
               </span>
               <span className="lg:hidden lg:sidebar-expanded:block 2xl:block">
-                Pages
+                選單
               </span>
             </h3>
             <ul className="mt-3">
@@ -201,7 +212,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                                 path={category.path}
                                 meta={category.svgMeta}
                               />
-                              <span className="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                              <span className="text-lg font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
                                 {category.title}
                               </span>
                             </div>
@@ -252,7 +263,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                   >
                     <NavLink
                       end
-                      to={`/zoo/${category.path}`}
+                      to={`/${category.path}`}
                       className={`block text-slate-200 truncate transition duration-150 ${
                         pathname.includes(category.path)
                           ? "hover:text-slate-200"
@@ -261,7 +272,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                     >
                       <div className="flex items-center">
                         <Icon path={category.path} meta={category.svgMeta} />
-                        <span className="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                        <span className="text-lg font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
                           {category.title}
                         </span>
                       </div>
@@ -272,7 +283,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
             </ul>
           </div>
           {/* More group */}
-          <div>
+          {/* <div>
             <h3 className="text-xs uppercase text-slate-500 font-semibold pl-3">
               <span
                 className="hidden lg:block lg:sidebar-expanded:hidden 2xl:hidden text-center w-6"
@@ -285,7 +296,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
               </span>
             </h3>
             <ul className="mt-3">
-              {/* Authentication */}
+              Authentication
               <SidebarLinkGroup>
                 {(handleClick, open) => (
                   <>
@@ -317,7 +328,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                             Authentication
                           </span>
                         </div>
-                        {/* Icon */}
+                        Icon
                         <div className="flex shrink-0 ml-2">
                           <svg
                             className={`w-3 h-3 shrink-0 ml-1 fill-current text-slate-400 ${
@@ -360,7 +371,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                 )}
               </SidebarLinkGroup>
             </ul>
-          </div>
+          </div> */}
         </div>
 
         {/* Expand / collapse button */}
