@@ -6,9 +6,8 @@ In your team project, it's recommended to make modifications directly from this 
 
 ***
 Chloe: 
-
-
-
+I've redesigned the sitemap. On the homepage, users will find two links side by side. They have the option to visit either the EditDiary page or the Calendar page to access their previous diaries. In the EditDiary page, I've introduced an input section where users can type in their diary entries. Following that, they can click the "AI聊聊" button to receive feedback from the AI. Alternatively, by clicking the "儲存" button, their diary content will be saved. 
+I guess next step would be integrating the APIs with the frontend.
 ***
 Jenny: So far i create three pages in /pages/moodblog, you can first go App.jsx to see i add the new link to connect the pages i created, 
 Route exact path="/" element={<Welcome />} 
