@@ -1,4 +1,6 @@
 // import { Box, Typography } from "@mui/material";
+import { useNavigate } from 'react-router-dom'; // for sign in and sign up
+
 import { Carousel, Typography, Button } from "@material-tailwind/react";
 import Layout from "../../partials/dashboard/Layout";
 import slideImg1 from '../../images/slideImg1.avif';
@@ -6,6 +8,17 @@ import slideImg2 from '../../images/slideImg2.jpeg';
 import slideImg3 from '../../images/slideImg3.jpeg';
 
 export default function MoodBlogComponent() {
+    const navigate = useNavigate();
+
+    const handleLoginButtonClick = () => {
+        navigate('/sign-in/');
+    }
+
+    const handleSignUpButtonClick = () => {
+        // Use the navigate function to go to the "/sign-up/" route
+        navigate('/sign-up/');
+    }
+
     return (
         <Layout>
             <Carousel className="rounded-xl">
@@ -32,10 +45,10 @@ export default function MoodBlogComponent() {
                                 哈囉，寫日記的超級明星🌟！<br></br>你知道嗎，你的每一句話都是一顆閃亮的星星✨，<br></br>而我正迫不及待地想要看到它們閃爍！<br></br>無論今天過得怎樣，都值得被記錄。
                             </Typography>
                             <div className="flex justify-center gap-2">
-                                <Button size="lg" color="white">
+                                <Button size="lg" color="white" onClick={handleLoginButtonClick}>
                                     登入
                                 </Button>
-                                <Button size="lg" color="white" variant="text">
+                                <Button size="lg" color="white" variant="text" onClick={handleSignUpButtonClick}>
                                     建立帳號
                                 </Button>
                             </div>

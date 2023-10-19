@@ -188,6 +188,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
               {sitemap.map((category) =>
                 category.sublinks ? (
                   <SidebarLinkGroup
+                    
                     activecondition={pathname.includes(category.path)}
                   >
                     {(handleClick, open) => (
@@ -232,7 +233,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                         <div className="lg:hidden lg:sidebar-expanded:block 2xl:block">
                           <ul className={`pl-9 mt-1 ${!open && "hidden"}`}>
                             {category.sublinks.map((subCategory) => (
-                              <li className="mb-1 last:mb-0">
+                              <li className="mb-1 last:mb-0" >
                                 <NavLink
                                   end
                                   to={`/zoo/${category.path}/${subCategory.path}`}
@@ -257,6 +258,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                   </SidebarLinkGroup>
                 ) : (
                   <li
+                    
                     className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${
                       pathname.includes(category.path) && "bg-orange-600/75"
                     }`}

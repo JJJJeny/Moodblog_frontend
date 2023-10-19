@@ -4,7 +4,7 @@
 import { useEffect } from "react";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import {
-  //   ClerkProvider,
+  ClerkProvider,
   SignedIn,
   SignedOut,
   RedirectToSignIn,
@@ -34,11 +34,11 @@ import Newpage from "./pages/moodblog/Newpage";
 import EditDiary from "./pages/moodblog/EditDiary";
 import Ai from "./pages/moodblog/Ai";
 
-// if (!import.meta.env.VITE_CLERK_PUBLISHABLE_KEY) {
-// throw new Error('Missing Publishable Key')
-// }
+if (!import.meta.env.VITE_CLERK_PUBLISHABLE_KEY) {
+throw new Error('Missing Publishable Key')
+}
 
-// const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 function App() {
   const location = useLocation();
@@ -50,46 +50,46 @@ function App() {
   }, [location.pathname]); // triggered on route change
 
   return (
-    // <ClerkProvider publishableKey={clerkPubKey}>
-    <Routes>
-      <Route exact path="/" element={<Welcome />} />
-      <Route exact path="/new" element={<Newpage />} />
-      <Route exact path="/edit" element={<EditDiary />} />
-      <Route exact path="/aichat" element={<Ai />} />
-      <Route exact path="/zoo" element={<Navigate to="/zoo/chart" />} />
-      <Route exact path="/zoo/chart" element={<Dashboard />} />
-      <Route exact path="/zoo/table" element={<Table />} />
-      <Route exact path="/zoo/form/typical" element={<Form />} />
-      <Route exact path="/zoo/form/file" element={<FormFile />} />
-      <Route exact path="/zoo/form/calendar" element={<Calendar />} />
-      <Route exact path="/zoo/mui/modal" element={<Modal />} />
-      <Route exact path="/zoo/mui/pagination" element={<Pagination />} />
-      <Route exact path="/zoo/mui/carousel" element={<Carousel />} />
-      <Route exact path="/zoo/hook" element={<Hook />} />
-      <Route
-        path="/sign-in/*"
-        element={<SignIn routing="path" path="/sign-in" />}
-      />
-      <Route
-        path="/sign-up/*"
-        element={<SignUp routing="path" path="/sign-up" />}
-      />
-      <Route
-        path="/zoo/chat"
-        element={
-          <>
-            <SignedIn>
-              <Chat />
-            </SignedIn>
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
-          </>
-        }
-      />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-    // </ClerkProvider>
+    <ClerkProvider publishableKey={clerkPubKey}>
+      <Routes>
+        <Route exact path="/" element={<Welcome />} />
+        <Route exact path="/new" element={<Newpage />} />
+        <Route exact path="/edit" element={<EditDiary />} />
+        <Route exact path="/aichat" element={<Ai />} />
+        <Route exact path="/zoo" element={<Navigate to="/zoo/chart" />} />
+        <Route exact path="/zoo/chart" element={<Dashboard />} />
+        <Route exact path="/zoo/table" element={<Table />} />
+        <Route exact path="/zoo/form/typical" element={<Form />} />
+        <Route exact path="/zoo/form/file" element={<FormFile />} />
+        <Route exact path="/zoo/form/calendar" element={<Calendar />} />
+        <Route exact path="/zoo/mui/modal" element={<Modal />} />
+        <Route exact path="/zoo/mui/pagination" element={<Pagination />} />
+        <Route exact path="/zoo/mui/carousel" element={<Carousel />} />
+        <Route exact path="/zoo/hook" element={<Hook />} />
+        <Route
+          path="/sign-in/*"
+          element={<SignIn routing="path" path="/sign-in" />}
+        />
+        <Route
+          path="/sign-up/*"
+          element={<SignUp routing="path" path="/sign-up" />}
+        />
+        <Route
+          path="/zoo/chat"
+          element={
+            <>
+              <SignedIn>
+                <Chat />
+              </SignedIn>
+              <SignedOut>
+                <RedirectToSignIn />
+              </SignedOut>
+            </>
+          }
+        />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </ClerkProvider>
   );
 }
 
