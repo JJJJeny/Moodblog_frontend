@@ -1,4 +1,9 @@
 # README
+
+Please run below in terminal after you pull the repo
+***
+npm run dev
+***
   
 (Please merge this code with your original assignment first, so that the Chart and Chat pages can display correctly!)  
   
